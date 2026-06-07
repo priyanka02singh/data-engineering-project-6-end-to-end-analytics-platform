@@ -2,37 +2,38 @@
 
 ## 📌 Overview
 
-This project implements a production-style end-to-end data platform that integrates:
+This project implements a production-style end-to-end data platform that integrates modern data engineering components into a unified system.
 
-- Batch data processing pipelines (ETL)
-- Data warehouse modeling (star schema using dbt)
-- Workflow orchestration using Apache Airflow
-- Machine learning feature pipeline
-- Structured analytics layer for reporting
+It combines:
+- Batch ETL pipelines
+- Data warehouse modeling (dbt)
+- Workflow orchestration (Apache Airflow)
+- Machine learning pipeline integration
 
-It simulates a modern data platform architecture used in real companies for analytics, reporting, and predictive modeling.
+The system simulates a real-world analytics platform used for business intelligence and predictive analytics.
 
 ---
 
 ## 🏗️ System Architecture
+
 ```text
-Raw Data (CSV / Simulated Sources)
+Raw Data (CSV Sources)
         ↓
-ETL Layer (Python Scripts)
+Python ETL Layer (Extraction + Cleaning)
         ↓
 Staging Tables (PostgreSQL)
         ↓
-Airflow Orchestration (DAGs)
+Apache Airflow (Orchestration Layer)
         ↓
 dbt Transformation Layer
         ↓
-Data Warehouse (Fact + Dimension Tables)
+Data Warehouse (Star Schema)
         ↓
 Feature Engineering Layer
         ↓
-Machine Learning Pipeline
+Machine Learning Model Training
         ↓
-Analytics / Prediction Output
+Prediction / Analytics Output
 ```
 
 ---
@@ -47,12 +48,12 @@ Analytics / Prediction Output
 ### 🔄 2. ETL Processing Layer
 
 - Python-based transformation logic
-- Cleans missing values and standardizes schema
-- Prepares staging-ready datasets
+- Handles missing values and schema normalization
+- Prepares data for warehouse ingestion
 
 ### 🏛️ 3. Data Warehouse Layer (dbt)
 
-- Implements star schema design
+- Implements star schema architecture
 - Fact tables: orders
 - Dimension tables: customers, products, payments
 - Ensures analytics-ready structure
@@ -60,14 +61,14 @@ Analytics / Prediction Output
 ###🤖 4. Machine Learning Layer
 
 - Feature engineering from warehouse tables
-- Model training pipeline
-- Stores trained model (model.pkl)
-- Supports prediction workflows
+- Model training using structured datasets
+- Saves trained model (model.pkl)
+- Enables prediction pipeline
   
 ### 🧠 5. Orchestration Layer (Airflow)
 - Automates full pipeline execution
 - Manages task dependencies
-- Ensures reproducibility and scheduling
+- Ensures reproducible workflows
 
 ---
 
@@ -91,11 +92,11 @@ Extract → Transform → Load → Staging → dbt Models → Warehouse → Feat
 
 ## 📁 Project Structure
 
-dags/              → Airflow workflows
-scripts/           → ETL + ML pipeline logic
-data/raw/          → Raw input datasets
+dags/              → Airflow DAGs
+scripts/           → ETL + ML pipelines
+data/raw/          → Raw datasets
 dbt/               → Data warehouse models
-models/            → Trained ML models
+models/            → ML models
 docker-compose.yml → Infrastructure setup
 requirements.txt   → Dependencies
 
@@ -104,7 +105,6 @@ requirements.txt   → Dependencies
 ### ▶ Manual Execution
 ```bash
 python scripts/load_raw_data.py
-python scripts/train_model.py
 ```
 ### ▶ Airflow Execution
 
@@ -116,22 +116,21 @@ dags/warehouse_pipeline.py
 
 ## 🧠 Key Engineering Highlights
 
-- End-to-end data platform simulation
-- Hybrid architecture (batch + warehouse + ML)
-- dbt-based warehouse modeling
-- Airflow orchestration layer
-- Production-style modular design
-- Scalable data engineering structure
+- Production-style data platform design
+- Batch + warehouse + ML integration
+- dbt-based analytics engineering
+- Airflow orchestration
+- Modular and scalable architecture
 
 ---
 
 ## 🚀 Outcome
 
-This project demonstrates a real-world analytics platform architecture combining:
+This project demonstrates a complete modern data platform that integrates:
 
-- Data engineering (ETL pipelines)
-- Data warehousing (dbt star schema)
-- Workflow orchestration (Airflow)
-- Machine learning integration
-
-It represents how modern data platforms are structured in production environments.
+- Data engineering pipelines
+- Data warehouse modeling
+- Workflow orchestration
+- Machine learning workflows
+  
+It reflects how real-world analytics platforms are built in production systems.
