@@ -1,31 +1,23 @@
-# OS files 
-.DS_Store 
+# Python 
+__pycache__/
+*.pyc
 
-# Python cache 
 
-__pycache__/ 
-*.pyc 
-
-# Airflow logs 
-
-logs/ 
-airflow/logs/ 
-
-# DBT 
-logs 
-dbt/logs/ 
+# OS
+.DS_Store
 
 # Env files 
-
 .env 
 
-# Airflow runtime files 
+# Logs 
+logs/ 
+*.log 
 
-airflow/airflow.db 
-airflow/airflow.cfg 
-airflow/*.pid 
+# Airflow runtime 
+airflow.db 
+airflow.cfg
 
-# IDE 
-
-.vscode/
-.idea/
+# dbt 
+dbt/logs/ 
+target/
+dbt_packages/
