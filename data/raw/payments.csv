@@ -1,0 +1,8 @@
+payment_id,order_id,payment_method,payment_status 
+5001,1001,Credit Card,Paid 
+5002,1002,UPI,Paid 
+5003,1003,Debit Card,Paid 
+5004,1004,Credit Card,Paid 
+5005,1005,Cash on Delivery,Pending 
+5006,1006,UPI,Paid
+5007,1007,Credit Card,Paid

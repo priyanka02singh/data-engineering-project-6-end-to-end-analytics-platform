@@ -1,0 +1,17 @@
+[2026-05-25T10:33:17.960+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: warehouse_pipeline.load_raw_data manual__2026-05-25T10:33:16.810675+00:00 [queued]>
+[2026-05-25T10:33:17.964+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: warehouse_pipeline.load_raw_data manual__2026-05-25T10:33:16.810675+00:00 [queued]>
+[2026-05-25T10:33:17.965+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-05-25T10:33:17.971+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): load_raw_data> on 2026-05-25 10:33:16.810675+00:00
+[2026-05-25T10:33:17.974+0000] {standard_task_runner.py:60} INFO - Started process 227 to run task
+[2026-05-25T10:33:17.977+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'warehouse_pipeline', 'load_raw_data', 'manual__2026-05-25T10:33:16.810675+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/warehouse_pipeline.py', '--cfg-path', '/tmp/tmplbmrw9ul']
+[2026-05-25T10:33:17.978+0000] {standard_task_runner.py:88} INFO - Job 80: Subtask load_raw_data
+[2026-05-25T10:33:18.002+0000] {task_command.py:423} INFO - Running <TaskInstance: warehouse_pipeline.load_raw_data manual__2026-05-25T10:33:16.810675+00:00 [running]> on host 8b4815f2506e
+[2026-05-25T10:33:18.041+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Priyanka' AIRFLOW_CTX_DAG_ID='warehouse_pipeline' AIRFLOW_CTX_TASK_ID='load_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2026-05-25T10:33:16.810675+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-25T10:33:16.810675+00:00'
+[2026-05-25T10:33:18.041+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-25T10:33:18.042+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/*** &&\n        python3 scripts/load_raw_data.py\n        ']
+[2026-05-25T10:33:18.046+0000] {subprocess.py:86} INFO - Output:
+[2026-05-25T10:33:18.812+0000] {subprocess.py:93} INFO - Raw e-commerce data loaded successfully!
+[2026-05-25T10:33:18.863+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-25T10:33:18.877+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=warehouse_pipeline, task_id=load_raw_data, execution_date=20260525T103316, start_date=20260525T103317, end_date=20260525T103318
+[2026-05-25T10:33:18.906+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-25T10:33:18.920+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

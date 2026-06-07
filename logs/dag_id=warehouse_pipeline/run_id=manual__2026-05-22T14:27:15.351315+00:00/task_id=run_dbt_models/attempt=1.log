@@ -1,0 +1,47 @@
+[2026-05-22T14:27:17.457+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_models manual__2026-05-22T14:27:15.351315+00:00 [queued]>
+[2026-05-22T14:27:17.460+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_models manual__2026-05-22T14:27:15.351315+00:00 [queued]>
+[2026-05-22T14:27:17.461+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-05-22T14:27:17.467+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): run_dbt_models> on 2026-05-22 14:27:15.351315+00:00
+[2026-05-22T14:27:17.469+0000] {standard_task_runner.py:60} INFO - Started process 305 to run task
+[2026-05-22T14:27:17.470+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'warehouse_pipeline', 'run_dbt_models', 'manual__2026-05-22T14:27:15.351315+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/warehouse_pipeline.py', '--cfg-path', '/tmp/tmphkc4sard']
+[2026-05-22T14:27:17.472+0000] {standard_task_runner.py:88} INFO - Job 43: Subtask run_dbt_models
+[2026-05-22T14:27:17.494+0000] {task_command.py:423} INFO - Running <TaskInstance: warehouse_pipeline.run_dbt_models manual__2026-05-22T14:27:15.351315+00:00 [running]> on host 9e7ef4c7a3a6
+[2026-05-22T14:27:17.526+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Priyanka' AIRFLOW_CTX_DAG_ID='warehouse_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2026-05-22T14:27:15.351315+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-22T14:27:15.351315+00:00'
+[2026-05-22T14:27:17.527+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-22T14:27:17.527+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', ' \n        cd /opt/***/dbt/ecommerce_warehouse &&         /home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt_profiles\n        ']
+[2026-05-22T14:27:17.530+0000] {subprocess.py:86} INFO - Output:
+[2026-05-22T14:27:18.265+0000] {subprocess.py:93} INFO - [0m14:27:18  Running with dbt=1.8.7
+[2026-05-22T14:27:18.385+0000] {subprocess.py:93} INFO - [0m14:27:18  Registered adapter: postgres=1.8.2
+[2026-05-22T14:27:18.478+0000] {subprocess.py:93} INFO - [0m14:27:18  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-05-22T14:27:18.478+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-05-22T14:27:18.478+0000] {subprocess.py:93} INFO - - models.ecommerce_warehouse.example
+[2026-05-22T14:27:18.566+0000] {subprocess.py:93} INFO - [0m14:27:18  Found 8 models, 6 data tests, 423 macros
+[2026-05-22T14:27:18.568+0000] {subprocess.py:93} INFO - [0m14:27:18
+[2026-05-22T14:27:18.628+0000] {subprocess.py:93} INFO - [0m14:27:18  Concurrency: 1 threads (target='dev')
+[2026-05-22T14:27:18.628+0000] {subprocess.py:93} INFO - [0m14:27:18
+[2026-05-22T14:27:18.633+0000] {subprocess.py:93} INFO - [0m14:27:18  1 of 8 START sql view model public.stg_customers ............................... [RUN]
+[2026-05-22T14:27:18.696+0000] {subprocess.py:93} INFO - [0m14:27:18  1 of 8 OK created sql view model public.stg_customers .......................... [[32mCREATE VIEW[0m in 0.06s]
+[2026-05-22T14:27:18.698+0000] {subprocess.py:93} INFO - [0m14:27:18  2 of 8 START sql view model public.stg_orders .................................. [RUN]
+[2026-05-22T14:27:18.721+0000] {subprocess.py:93} INFO - [0m14:27:18  2 of 8 OK created sql view model public.stg_orders ............................. [[32mCREATE VIEW[0m in 0.02s]
+[2026-05-22T14:27:18.722+0000] {subprocess.py:93} INFO - [0m14:27:18  3 of 8 START sql view model public.stg_payments ................................ [RUN]
+[2026-05-22T14:27:18.744+0000] {subprocess.py:93} INFO - [0m14:27:18  3 of 8 OK created sql view model public.stg_payments ........................... [[32mCREATE VIEW[0m in 0.02s]
+[2026-05-22T14:27:18.746+0000] {subprocess.py:93} INFO - [0m14:27:18  4 of 8 START sql view model public.stg_products ................................ [RUN]
+[2026-05-22T14:27:18.798+0000] {subprocess.py:93} INFO - [0m14:27:18  4 of 8 OK created sql view model public.stg_products ........................... [[32mCREATE VIEW[0m in 0.05s]
+[2026-05-22T14:27:18.799+0000] {subprocess.py:93} INFO - [0m14:27:18  5 of 8 START sql view model public.dim_customers ............................... [RUN]
+[2026-05-22T14:27:18.820+0000] {subprocess.py:93} INFO - [0m14:27:18  5 of 8 OK created sql view model public.dim_customers .......................... [[32mCREATE VIEW[0m in 0.02s]
+[2026-05-22T14:27:18.821+0000] {subprocess.py:93} INFO - [0m14:27:18  6 of 8 START sql view model public.dim_products ................................ [RUN]
+[2026-05-22T14:27:18.844+0000] {subprocess.py:93} INFO - [0m14:27:18  6 of 8 OK created sql view model public.dim_products ........................... [[32mCREATE VIEW[0m in 0.02s]
+[2026-05-22T14:27:18.845+0000] {subprocess.py:93} INFO - [0m14:27:18  7 of 8 START sql view model public.fct_orders .................................. [RUN]
+[2026-05-22T14:27:18.868+0000] {subprocess.py:93} INFO - [0m14:27:18  7 of 8 OK created sql view model public.fct_orders ............................. [[32mCREATE VIEW[0m in 0.02s]
+[2026-05-22T14:27:18.870+0000] {subprocess.py:93} INFO - [0m14:27:18  8 of 8 START sql view model public.kpi_sales_summary ........................... [RUN]
+[2026-05-22T14:27:18.894+0000] {subprocess.py:93} INFO - [0m14:27:18  8 of 8 OK created sql view model public.kpi_sales_summary ...................... [[32mCREATE VIEW[0m in 0.02s]
+[2026-05-22T14:27:18.900+0000] {subprocess.py:93} INFO - [0m14:27:18
+[2026-05-22T14:27:18.900+0000] {subprocess.py:93} INFO - [0m14:27:18  Finished running 8 view models in 0 hours 0 minutes and 0.33 seconds (0.33s).
+[2026-05-22T14:27:18.926+0000] {subprocess.py:93} INFO - [0m14:27:18
+[2026-05-22T14:27:18.927+0000] {subprocess.py:93} INFO - [0m14:27:18  [32mCompleted successfully[0m
+[2026-05-22T14:27:18.927+0000] {subprocess.py:93} INFO - [0m14:27:18
+[2026-05-22T14:27:18.927+0000] {subprocess.py:93} INFO - [0m14:27:18  Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[2026-05-22T14:27:20.276+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-22T14:27:20.289+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=warehouse_pipeline, task_id=run_dbt_models, execution_date=20260522T142715, start_date=20260522T142717, end_date=20260522T142720
+[2026-05-22T14:27:20.334+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-22T14:27:20.349+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

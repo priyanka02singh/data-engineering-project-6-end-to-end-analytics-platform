@@ -1,0 +1,156 @@
+[2026-05-22T17:30:41.247+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_models manual__2026-05-22T17:30:39.674107+00:00 [queued]>
+[2026-05-22T17:30:41.251+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_models manual__2026-05-22T17:30:39.674107+00:00 [queued]>
+[2026-05-22T17:30:41.251+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-05-22T17:30:41.256+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): run_dbt_models> on 2026-05-22 17:30:39.674107+00:00
+[2026-05-22T17:30:41.259+0000] {standard_task_runner.py:60} INFO - Started process 1764 to run task
+[2026-05-22T17:30:41.260+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'warehouse_pipeline', 'run_dbt_models', 'manual__2026-05-22T17:30:39.674107+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/warehouse_pipeline.py', '--cfg-path', '/tmp/tmp8s16sslx']
+[2026-05-22T17:30:41.262+0000] {standard_task_runner.py:88} INFO - Job 38: Subtask run_dbt_models
+[2026-05-22T17:30:41.283+0000] {task_command.py:423} INFO - Running <TaskInstance: warehouse_pipeline.run_dbt_models manual__2026-05-22T17:30:39.674107+00:00 [running]> on host ddd49e0ec5cd
+[2026-05-22T17:30:41.314+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Priyanka' AIRFLOW_CTX_DAG_ID='warehouse_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2026-05-22T17:30:39.674107+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-22T17:30:39.674107+00:00'
+[2026-05-22T17:30:41.314+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-22T17:30:41.315+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'pip install --user dbt-core dbt-postgres && python3 -m dbt run --profiles-dir /opt/***/dbt_profiles --project-dir /opt/***/dbt/ecommerce_warehouse']
+[2026-05-22T17:30:41.319+0000] {subprocess.py:86} INFO - Output:
+[2026-05-22T17:30:42.350+0000] {subprocess.py:93} INFO - Collecting dbt-core
+[2026-05-22T17:30:42.407+0000] {subprocess.py:93} INFO -   Downloading dbt_core-1.8.7-py3-none-any.whl.metadata (3.9 kB)
+[2026-05-22T17:30:42.470+0000] {subprocess.py:93} INFO - Collecting dbt-postgres
+[2026-05-22T17:30:42.479+0000] {subprocess.py:93} INFO -   Downloading dbt_postgres-1.8.2-py3-none-any.whl.metadata (4.0 kB)
+[2026-05-22T17:30:42.792+0000] {subprocess.py:93} INFO - Collecting agate<1.10,>=1.7.0 (from dbt-core)
+[2026-05-22T17:30:42.802+0000] {subprocess.py:93} INFO -   Downloading agate-1.9.1-py2.py3-none-any.whl.metadata (3.2 kB)
+[2026-05-22T17:30:42.808+0000] {subprocess.py:93} INFO - Requirement already satisfied: Jinja2<4,>=3.1.3 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (3.1.3)
+[2026-05-22T17:30:43.108+0000] {subprocess.py:93} INFO - Collecting mashumaro<4.0,>=3.9 (from mashumaro[msgpack]<4.0,>=3.9->dbt-core)
+[2026-05-22T17:30:43.119+0000] {subprocess.py:93} INFO -   Downloading mashumaro-3.14-py3-none-any.whl.metadata (114 kB)
+[2026-05-22T17:30:43.140+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 114.4/114.4 kB 6.1 MB/s eta 0:00:00
+[2026-05-22T17:30:43.474+0000] {subprocess.py:93} INFO - Collecting logbook<1.6,>=1.5 (from dbt-core)
+[2026-05-22T17:30:43.483+0000] {subprocess.py:93} INFO -   Downloading Logbook-1.5.3.tar.gz (85 kB)
+[2026-05-22T17:30:43.493+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.8/85.8 kB 9.7 MB/s eta 0:00:00
+[2026-05-22T17:30:43.505+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): started
+[2026-05-22T17:30:43.759+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): finished with status 'done'
+[2026-05-22T17:30:43.761+0000] {subprocess.py:93} INFO - Requirement already satisfied: click<9.0,>=8.0.2 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (8.1.7)
+[2026-05-22T17:30:43.790+0000] {subprocess.py:93} INFO - Collecting networkx<4.0,>=2.3 (from dbt-core)
+[2026-05-22T17:30:43.798+0000] {subprocess.py:93} INFO -   Downloading networkx-3.1-py3-none-any.whl.metadata (5.3 kB)
+[2026-05-22T17:30:43.802+0000] {subprocess.py:93} INFO - Requirement already satisfied: protobuf<5,>=4.0.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (4.25.2)
+[2026-05-22T17:30:43.802+0000] {subprocess.py:93} INFO - Requirement already satisfied: requests<3.0.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (2.31.0)
+[2026-05-22T17:30:43.802+0000] {subprocess.py:93} INFO - Requirement already satisfied: pathspec<0.13,>=0.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.12.1)
+[2026-05-22T17:30:43.824+0000] {subprocess.py:93} INFO - Collecting sqlparse<0.6.0,>=0.5.0 (from dbt-core)
+[2026-05-22T17:30:43.833+0000] {subprocess.py:93} INFO -   Downloading sqlparse-0.5.5-py3-none-any.whl.metadata (4.7 kB)
+[2026-05-22T17:30:44.132+0000] {subprocess.py:93} INFO - Collecting dbt-extractor<=0.6,>=0.5.0 (from dbt-core)
+[2026-05-22T17:30:44.144+0000] {subprocess.py:93} INFO -   Downloading dbt_extractor-0.5.1-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.2 kB)
+[2026-05-22T17:30:44.426+0000] {subprocess.py:93} INFO - Collecting minimal-snowplow-tracker<0.1,>=0.0.2 (from dbt-core)
+[2026-05-22T17:30:44.441+0000] {subprocess.py:93} INFO -   Downloading minimal-snowplow-tracker-0.0.2.tar.gz (12 kB)
+[2026-05-22T17:30:44.453+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): started
+[2026-05-22T17:30:44.668+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): finished with status 'done'
+[2026-05-22T17:30:44.972+0000] {subprocess.py:93} INFO - Collecting dbt-semantic-interfaces<0.6,>=0.5.1 (from dbt-core)
+[2026-05-22T17:30:44.983+0000] {subprocess.py:93} INFO -   Downloading dbt_semantic_interfaces-0.5.1-py3-none-any.whl.metadata (2.6 kB)
+[2026-05-22T17:30:45.283+0000] {subprocess.py:93} INFO - Collecting dbt-common<2.0,>=1.0.4 (from dbt-core)
+[2026-05-22T17:30:45.298+0000] {subprocess.py:93} INFO -   Downloading dbt_common-1.11.0-py3-none-any.whl.metadata (5.3 kB)
+[2026-05-22T17:30:45.654+0000] {subprocess.py:93} INFO - Collecting dbt-adapters<2.0,>=1.1.1 (from dbt-core)
+[2026-05-22T17:30:45.670+0000] {subprocess.py:93} INFO -   Downloading dbt_adapters-1.7.0-py3-none-any.whl.metadata (2.5 kB)
+[2026-05-22T17:30:45.675+0000] {subprocess.py:93} INFO - Requirement already satisfied: packaging>20.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (23.2)
+[2026-05-22T17:30:45.675+0000] {subprocess.py:93} INFO - Requirement already satisfied: pytz>=2015.7 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (2023.3.post1)
+[2026-05-22T17:30:45.676+0000] {subprocess.py:93} INFO - Requirement already satisfied: pyyaml>=6.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (6.0.1)
+[2026-05-22T17:30:45.951+0000] {subprocess.py:93} INFO - Collecting daff>=1.3.46 (from dbt-core)
+[2026-05-22T17:30:45.963+0000] {subprocess.py:93} INFO -   Downloading daff-1.4.2-py3-none-any.whl.metadata (10 kB)
+[2026-05-22T17:30:45.967+0000] {subprocess.py:93} INFO - Requirement already satisfied: typing-extensions>=4.4 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (4.9.0)
+[2026-05-22T17:30:45.992+0000] {subprocess.py:93} INFO - Collecting dbt-core
+[2026-05-22T17:30:46.003+0000] {subprocess.py:93} INFO -   Downloading dbt_core-1.9.0b2-py3-none-any.whl.metadata (3.9 kB)
+[2026-05-22T17:30:46.006+0000] {subprocess.py:93} INFO - Requirement already satisfied: psycopg2-binary<3.0,>=2.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-postgres) (2.9.9)
+[2026-05-22T17:30:46.013+0000] {subprocess.py:93} INFO - Requirement already satisfied: Babel>=2.0 in /home/***/.local/lib/python3.8/site-packages (from agate<1.10,>=1.7.0->dbt-core) (2.14.0)
+[2026-05-22T17:30:46.014+0000] {subprocess.py:93} INFO - Requirement already satisfied: isodate>=0.5.4 in /home/***/.local/lib/python3.8/site-packages (from agate<1.10,>=1.7.0->dbt-core) (0.6.1)
+[2026-05-22T17:30:46.303+0000] {subprocess.py:93} INFO - Collecting leather>=0.3.2 (from agate<1.10,>=1.7.0->dbt-core)
+[2026-05-22T17:30:46.316+0000] {subprocess.py:93} INFO -   Downloading leather-0.4.1-py3-none-any.whl.metadata (3.0 kB)
+[2026-05-22T17:30:46.340+0000] {subprocess.py:93} INFO - Collecting parsedatetime!=2.5,>=2.1 (from agate<1.10,>=1.7.0->dbt-core)
+[2026-05-22T17:30:46.351+0000] {subprocess.py:93} INFO -   Downloading parsedatetime-2.6-py3-none-any.whl.metadata (4.7 kB)
+[2026-05-22T17:30:46.356+0000] {subprocess.py:93} INFO - Requirement already satisfied: python-slugify>=1.2.1 in /home/***/.local/lib/python3.8/site-packages (from agate<1.10,>=1.7.0->dbt-core) (8.0.1)
+[2026-05-22T17:30:46.375+0000] {subprocess.py:93} INFO - Collecting pytimeparse>=1.1.5 (from agate<1.10,>=1.7.0->dbt-core)
+[2026-05-22T17:30:46.387+0000] {subprocess.py:93} INFO -   Downloading pytimeparse-1.1.8-py2.py3-none-any.whl.metadata (3.4 kB)
+[2026-05-22T17:30:46.420+0000] {subprocess.py:93} INFO - Requirement already satisfied: colorama<0.5,>=0.3.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-common<2.0,>=1.0.4->dbt-core) (0.4.6)
+[2026-05-22T17:30:46.465+0000] {subprocess.py:93} INFO - Collecting deepdiff<8.0,>=7.0 (from dbt-common<2.0,>=1.0.4->dbt-core)
+[2026-05-22T17:30:46.473+0000] {subprocess.py:93} INFO -   Downloading deepdiff-7.0.1-py3-none-any.whl.metadata (6.8 kB)
+[2026-05-22T17:30:46.477+0000] {subprocess.py:93} INFO - Requirement already satisfied: jsonschema<5.0,>=4.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-common<2.0,>=1.0.4->dbt-core) (4.20.0)
+[2026-05-22T17:30:46.477+0000] {subprocess.py:93} INFO - Requirement already satisfied: python-dateutil<3.0,>=2.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-common<2.0,>=1.0.4->dbt-core) (2.8.2)
+[2026-05-22T17:30:46.484+0000] {subprocess.py:93} INFO - Requirement already satisfied: importlib-metadata<7,>=6.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-semantic-interfaces<0.6,>=0.5.1->dbt-core) (6.11.0)
+[2026-05-22T17:30:46.509+0000] {subprocess.py:93} INFO - Collecting more-itertools<11.0,>=8.0 (from dbt-semantic-interfaces<0.6,>=0.5.1->dbt-core)
+[2026-05-22T17:30:46.519+0000] {subprocess.py:93} INFO -   Downloading more_itertools-10.5.0-py3-none-any.whl.metadata (36 kB)
+[2026-05-22T17:30:46.526+0000] {subprocess.py:93} INFO - Requirement already satisfied: pydantic<3,>=1.10 in /home/***/.local/lib/python3.8/site-packages (from dbt-semantic-interfaces<0.6,>=0.5.1->dbt-core) (2.5.3)
+[2026-05-22T17:30:46.529+0000] {subprocess.py:93} INFO - Requirement already satisfied: MarkupSafe>=2.0 in /home/***/.local/lib/python3.8/site-packages (from Jinja2<4,>=3.1.3->dbt-core) (2.1.3)
+[2026-05-22T17:30:46.616+0000] {subprocess.py:93} INFO - Collecting msgpack>=0.5.6 (from mashumaro[msgpack]<4.0,>=3.9->dbt-core)
+[2026-05-22T17:30:46.629+0000] {subprocess.py:93} INFO -   Downloading msgpack-1.1.1-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (8.3 kB)
+[2026-05-22T17:30:46.638+0000] {subprocess.py:93} INFO - Requirement already satisfied: six<2.0,>=1.9.0 in /home/***/.local/lib/python3.8/site-packages (from minimal-snowplow-tracker<0.1,>=0.0.2->dbt-core) (1.16.0)
+[2026-05-22T17:30:46.662+0000] {subprocess.py:93} INFO - Requirement already satisfied: charset-normalizer<4,>=2 in /home/***/.local/lib/python3.8/site-packages (from requests<3.0.0->dbt-core) (3.3.2)
+[2026-05-22T17:30:46.662+0000] {subprocess.py:93} INFO - Requirement already satisfied: idna<4,>=2.5 in /home/***/.local/lib/python3.8/site-packages (from requests<3.0.0->dbt-core) (3.6)
+[2026-05-22T17:30:46.663+0000] {subprocess.py:93} INFO - Requirement already satisfied: urllib3<3,>=1.21.1 in /home/***/.local/lib/python3.8/site-packages (from requests<3.0.0->dbt-core) (1.26.18)
+[2026-05-22T17:30:46.663+0000] {subprocess.py:93} INFO - Requirement already satisfied: certifi>=2017.4.17 in /home/***/.local/lib/python3.8/site-packages (from requests<3.0.0->dbt-core) (2023.11.17)
+[2026-05-22T17:30:46.682+0000] {subprocess.py:93} INFO - Requirement already satisfied: ordered-set<4.2.0,>=4.1.0 in /home/***/.local/lib/python3.8/site-packages (from deepdiff<8.0,>=7.0->dbt-common<2.0,>=1.0.4->dbt-core) (4.1.0)
+[2026-05-22T17:30:46.695+0000] {subprocess.py:93} INFO - Requirement already satisfied: zipp>=0.5 in /home/***/.local/lib/python3.8/site-packages (from importlib-metadata<7,>=6.0->dbt-semantic-interfaces<0.6,>=0.5.1->dbt-core) (3.17.0)
+[2026-05-22T17:30:46.708+0000] {subprocess.py:93} INFO - Requirement already satisfied: attrs>=22.2.0 in /home/***/.local/lib/python3.8/site-packages (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-core) (23.2.0)
+[2026-05-22T17:30:46.709+0000] {subprocess.py:93} INFO - Requirement already satisfied: importlib-resources>=1.4.0 in /home/***/.local/lib/python3.8/site-packages (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-core) (5.13.0)
+[2026-05-22T17:30:46.709+0000] {subprocess.py:93} INFO - Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/***/.local/lib/python3.8/site-packages (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-core) (2023.12.1)
+[2026-05-22T17:30:46.710+0000] {subprocess.py:93} INFO - Requirement already satisfied: pkgutil-resolve-name>=1.3.10 in /home/***/.local/lib/python3.8/site-packages (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-core) (1.3.10)
+[2026-05-22T17:30:46.710+0000] {subprocess.py:93} INFO - Requirement already satisfied: referencing>=0.28.4 in /home/***/.local/lib/python3.8/site-packages (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-core) (0.32.1)
+[2026-05-22T17:30:46.711+0000] {subprocess.py:93} INFO - Requirement already satisfied: rpds-py>=0.7.1 in /home/***/.local/lib/python3.8/site-packages (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-core) (0.17.1)
+[2026-05-22T17:30:46.730+0000] {subprocess.py:93} INFO - Requirement already satisfied: annotated-types>=0.4.0 in /home/***/.local/lib/python3.8/site-packages (from pydantic<3,>=1.10->dbt-semantic-interfaces<0.6,>=0.5.1->dbt-core) (0.6.0)
+[2026-05-22T17:30:46.730+0000] {subprocess.py:93} INFO - Requirement already satisfied: pydantic-core==2.14.6 in /home/***/.local/lib/python3.8/site-packages (from pydantic<3,>=1.10->dbt-semantic-interfaces<0.6,>=0.5.1->dbt-core) (2.14.6)
+[2026-05-22T17:30:46.740+0000] {subprocess.py:93} INFO - Requirement already satisfied: text-unidecode>=1.3 in /home/***/.local/lib/python3.8/site-packages (from python-slugify>=1.2.1->agate<1.10,>=1.7.0->dbt-core) (1.3)
+[2026-05-22T17:30:46.823+0000] {subprocess.py:93} INFO - Downloading dbt_core-1.8.7-py3-none-any.whl (900 kB)
+[2026-05-22T17:30:46.918+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 900.5/900.5 kB 9.8 MB/s eta 0:00:00
+[2026-05-22T17:30:46.927+0000] {subprocess.py:93} INFO - Downloading dbt_postgres-1.8.2-py3-none-any.whl (33 kB)
+[2026-05-22T17:30:46.943+0000] {subprocess.py:93} INFO - Downloading agate-1.9.1-py2.py3-none-any.whl (95 kB)
+[2026-05-22T17:30:46.954+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.1/95.1 kB 9.3 MB/s eta 0:00:00
+[2026-05-22T17:30:46.964+0000] {subprocess.py:93} INFO - Downloading daff-1.4.2-py3-none-any.whl (144 kB)
+[2026-05-22T17:30:46.982+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 144.9/144.9 kB 9.1 MB/s eta 0:00:00
+[2026-05-22T17:30:46.991+0000] {subprocess.py:93} INFO - Downloading dbt_adapters-1.7.0-py3-none-any.whl (162 kB)
+[2026-05-22T17:30:47.008+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.0/162.0 kB 10.3 MB/s eta 0:00:00
+[2026-05-22T17:30:47.020+0000] {subprocess.py:93} INFO - Downloading dbt_common-1.11.0-py3-none-any.whl (82 kB)
+[2026-05-22T17:30:47.030+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.2/82.2 kB 9.0 MB/s eta 0:00:00
+[2026-05-22T17:30:47.039+0000] {subprocess.py:93} INFO - Downloading dbt_extractor-0.5.1-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (1.3 MB)
+[2026-05-22T17:30:47.172+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 10.4 MB/s eta 0:00:00
+[2026-05-22T17:30:47.184+0000] {subprocess.py:93} INFO - Downloading dbt_semantic_interfaces-0.5.1-py3-none-any.whl (119 kB)
+[2026-05-22T17:30:47.199+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.7/119.7 kB 8.8 MB/s eta 0:00:00
+[2026-05-22T17:30:47.212+0000] {subprocess.py:93} INFO - Downloading mashumaro-3.14-py3-none-any.whl (92 kB)
+[2026-05-22T17:30:47.225+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.2/92.2 kB 8.9 MB/s eta 0:00:00
+[2026-05-22T17:30:47.234+0000] {subprocess.py:93} INFO - Downloading networkx-3.1-py3-none-any.whl (2.1 MB)
+[2026-05-22T17:30:47.434+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 10.7 MB/s eta 0:00:00
+[2026-05-22T17:30:47.442+0000] {subprocess.py:93} INFO - Downloading sqlparse-0.5.5-py3-none-any.whl (46 kB)
+[2026-05-22T17:30:47.454+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.1/46.1 kB 4.6 MB/s eta 0:00:00
+[2026-05-22T17:30:47.464+0000] {subprocess.py:93} INFO - Downloading deepdiff-7.0.1-py3-none-any.whl (80 kB)
+[2026-05-22T17:30:47.475+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.8/80.8 kB 8.8 MB/s eta 0:00:00
+[2026-05-22T17:30:47.487+0000] {subprocess.py:93} INFO - Downloading leather-0.4.1-py3-none-any.whl (30 kB)
+[2026-05-22T17:30:47.509+0000] {subprocess.py:93} INFO - Downloading more_itertools-10.5.0-py3-none-any.whl (60 kB)
+[2026-05-22T17:30:47.518+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.0/61.0 kB 7.7 MB/s eta 0:00:00
+[2026-05-22T17:30:47.527+0000] {subprocess.py:93} INFO - Downloading msgpack-1.1.1-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (409 kB)
+[2026-05-22T17:30:47.568+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 409.2/409.2 kB 10.6 MB/s eta 0:00:00
+[2026-05-22T17:30:47.578+0000] {subprocess.py:93} INFO - Downloading parsedatetime-2.6-py3-none-any.whl (42 kB)
+[2026-05-22T17:30:47.586+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.5/42.5 kB 5.4 MB/s eta 0:00:00
+[2026-05-22T17:30:47.593+0000] {subprocess.py:93} INFO - Downloading pytimeparse-1.1.8-py2.py3-none-any.whl (10.0 kB)
+[2026-05-22T17:30:47.616+0000] {subprocess.py:93} INFO - Building wheels for collected packages: logbook, minimal-snowplow-tracker
+[2026-05-22T17:30:47.616+0000] {subprocess.py:93} INFO -   Building wheel for logbook (setup.py): started
+[2026-05-22T17:30:48.052+0000] {subprocess.py:93} INFO -   Building wheel for logbook (setup.py): finished with status 'done'
+[2026-05-22T17:30:48.053+0000] {subprocess.py:93} INFO -   Created wheel for logbook: filename=Logbook-1.5.3-cp38-cp38-linux_aarch64.whl size=65606 sha256=8f0921fa62d36e30108c11e0f3ee2eceac942646990309acfdf035b848572dbd
+[2026-05-22T17:30:48.053+0000] {subprocess.py:93} INFO -   Stored in directory: /home/***/.cache/pip/wheels/25/9a/c0/03bf368ac5f673e9c0bde58837146b004424b25555ca3aedfb
+[2026-05-22T17:30:48.055+0000] {subprocess.py:93} INFO -   Building wheel for minimal-snowplow-tracker (setup.py): started
+[2026-05-22T17:30:48.339+0000] {subprocess.py:93} INFO -   Building wheel for minimal-snowplow-tracker (setup.py): finished with status 'done'
+[2026-05-22T17:30:48.340+0000] {subprocess.py:93} INFO -   Created wheel for minimal-snowplow-tracker: filename=minimal_snowplow_tracker-0.0.2-py3-none-any.whl size=17797 sha256=4fd58148a782cf8db126e4ab93b4c1e875f06d309f3a41fb778b2dfd04bcdb43
+[2026-05-22T17:30:48.340+0000] {subprocess.py:93} INFO -   Stored in directory: /home/***/.cache/pip/wheels/d4/04/77/72a8c17c9c19691be497bb4e192bd760aff6d47fa959d184e8
+[2026-05-22T17:30:48.341+0000] {subprocess.py:93} INFO - Successfully built logbook minimal-snowplow-tracker
+[2026-05-22T17:30:49.491+0000] {subprocess.py:93} INFO - Installing collected packages: pytimeparse, parsedatetime, logbook, leather, daff, sqlparse, networkx, msgpack, more-itertools, mashumaro, deepdiff, dbt-extractor, minimal-snowplow-tracker, agate, dbt-semantic-interfaces, dbt-common, dbt-adapters, dbt-core, dbt-postgres
+[2026-05-22T17:30:49.671+0000] {subprocess.py:93} INFO -   Attempting uninstall: sqlparse
+[2026-05-22T17:30:49.672+0000] {subprocess.py:93} INFO -     Found existing installation: sqlparse 0.4.4
+[2026-05-22T17:30:49.674+0000] {subprocess.py:93} INFO -     Uninstalling sqlparse-0.4.4:
+[2026-05-22T17:30:49.680+0000] {subprocess.py:93} INFO -       Successfully uninstalled sqlparse-0.4.4
+[2026-05-22T17:30:50.656+0000] {subprocess.py:93} INFO - Successfully installed agate-1.9.1 daff-1.4.2 dbt-adapters-1.7.0 dbt-common-1.11.0 dbt-core-1.8.7 dbt-extractor-0.5.1 dbt-postgres-1.8.2 dbt-semantic-interfaces-0.5.1 deepdiff-7.0.1 leather-0.4.1 logbook-1.5.3 mashumaro-3.14 minimal-snowplow-tracker-0.0.2 more-itertools-10.5.0 msgpack-1.1.1 networkx-3.1 parsedatetime-2.6 pytimeparse-1.1.8 sqlparse-0.5.5
+[2026-05-22T17:30:50.743+0000] {subprocess.py:93} INFO - 
+[2026-05-22T17:30:50.743+0000] {subprocess.py:93} INFO - [notice] A new release of pip is available: 23.3.2 -> 25.0.1
+[2026-05-22T17:30:50.743+0000] {subprocess.py:93} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2026-05-22T17:30:50.891+0000] {subprocess.py:93} INFO - /usr/local/bin/python3: No module named dbt.__main__; 'dbt' is a package and cannot be directly executed
+[2026-05-22T17:30:50.893+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-05-22T17:30:50.904+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-05-22T17:30:50.906+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=warehouse_pipeline, task_id=run_dbt_models, execution_date=20260522T173039, start_date=20260522T173041, end_date=20260522T173050
+[2026-05-22T17:30:50.915+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 38 for task run_dbt_models (Bash command failed. The command returned a non-zero exit code 1.; 1764)
+[2026-05-22T17:30:50.933+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-05-22T17:30:50.947+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,97 @@
+[2026-05-25T10:58:58.238+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_tests manual__2026-05-25T10:58:50.982740+00:00 [queued]>
+[2026-05-25T10:58:58.242+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_tests manual__2026-05-25T10:58:50.982740+00:00 [queued]>
+[2026-05-25T10:58:58.242+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-05-25T10:58:58.248+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): run_dbt_tests> on 2026-05-25 10:58:50.982740+00:00
+[2026-05-25T10:58:58.250+0000] {standard_task_runner.py:60} INFO - Started process 445 to run task
+[2026-05-25T10:58:58.253+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'warehouse_pipeline', 'run_dbt_tests', 'manual__2026-05-25T10:58:50.982740+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/warehouse_pipeline.py', '--cfg-path', '/tmp/tmp2sislp1m']
+[2026-05-25T10:58:58.254+0000] {standard_task_runner.py:88} INFO - Job 90: Subtask run_dbt_tests
+[2026-05-25T10:58:58.276+0000] {task_command.py:423} INFO - Running <TaskInstance: warehouse_pipeline.run_dbt_tests manual__2026-05-25T10:58:50.982740+00:00 [running]> on host 3739338474e2
+[2026-05-25T10:58:58.309+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Priyanka' AIRFLOW_CTX_DAG_ID='warehouse_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_tests' AIRFLOW_CTX_EXECUTION_DATE='2026-05-25T10:58:50.982740+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-25T10:58:50.982740+00:00'
+[2026-05-25T10:58:58.310+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-25T10:58:58.311+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        pip install --user dbt-core dbt-postgres &&\n        export PATH=$PATH:/home/***/.local/bin &&\n        cd /opt/***/dbt/ecommerce_warehouse &&\n        dbt test --profiles-dir /opt/***/dbt_profiles\n        ']
+[2026-05-25T10:58:58.314+0000] {subprocess.py:86} INFO - Output:
+[2026-05-25T10:58:58.531+0000] {subprocess.py:93} INFO - Requirement already satisfied: dbt-core in /home/***/.local/lib/python3.8/site-packages (1.7.9)
+[2026-05-25T10:58:58.531+0000] {subprocess.py:93} INFO - Requirement already satisfied: dbt-postgres in /home/***/.local/lib/python3.8/site-packages (1.7.9)
+[2026-05-25T10:58:58.539+0000] {subprocess.py:93} INFO - Requirement already satisfied: agate~=1.7.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (1.7.1)
+[2026-05-25T10:58:58.540+0000] {subprocess.py:93} INFO - Requirement already satisfied: Jinja2<4,>=3.1.3 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (3.1.3)
+[2026-05-25T10:58:58.540+0000] {subprocess.py:93} INFO - Requirement already satisfied: mashumaro~=3.9 in /home/***/.local/lib/python3.8/site-packages (from mashumaro[msgpack]~=3.9->dbt-core) (3.14)
+[2026-05-25T10:58:58.541+0000] {subprocess.py:93} INFO - Requirement already satisfied: logbook<1.6,>=1.5 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (1.5.3)
+[2026-05-25T10:58:58.541+0000] {subprocess.py:93} INFO - Requirement already satisfied: click<9,>=8.0.2 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (8.1.7)
+[2026-05-25T10:58:58.541+0000] {subprocess.py:93} INFO - Requirement already satisfied: networkx<4,>=2.3 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (3.1)
+[2026-05-25T10:58:58.542+0000] {subprocess.py:93} INFO - Requirement already satisfied: colorama<0.5,>=0.3.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.4.6)
+[2026-05-25T10:58:58.542+0000] {subprocess.py:93} INFO - Requirement already satisfied: pathspec<0.12,>=0.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.11.2)
+[2026-05-25T10:58:58.542+0000] {subprocess.py:93} INFO - Requirement already satisfied: isodate<0.7,>=0.6 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.6.1)
+[2026-05-25T10:58:58.543+0000] {subprocess.py:93} INFO - Requirement already satisfied: sqlparse<0.5,>=0.2.3 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.4.4)
+[2026-05-25T10:58:58.543+0000] {subprocess.py:93} INFO - Requirement already satisfied: dbt-extractor~=0.5.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.5.1)
+[2026-05-25T10:58:58.543+0000] {subprocess.py:93} INFO - Requirement already satisfied: minimal-snowplow-tracker~=0.0.2 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.0.2)
+[2026-05-25T10:58:58.543+0000] {subprocess.py:93} INFO - Requirement already satisfied: dbt-semantic-interfaces~=0.4.2 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (0.4.4)
+[2026-05-25T10:58:58.544+0000] {subprocess.py:93} INFO - Requirement already satisfied: jsonschema>=3.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (4.20.0)
+[2026-05-25T10:58:58.544+0000] {subprocess.py:93} INFO - Requirement already satisfied: packaging>20.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (23.2)
+[2026-05-25T10:58:58.544+0000] {subprocess.py:93} INFO - Requirement already satisfied: protobuf>=4.0.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (4.25.2)
+[2026-05-25T10:58:58.545+0000] {subprocess.py:93} INFO - Requirement already satisfied: pytz>=2015.7 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (2023.3.post1)
+[2026-05-25T10:58:58.545+0000] {subprocess.py:93} INFO - Requirement already satisfied: pyyaml>=6.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (6.0.1)
+[2026-05-25T10:58:58.545+0000] {subprocess.py:93} INFO - Requirement already satisfied: typing-extensions>=3.7.4 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (4.9.0)
+[2026-05-25T10:58:58.546+0000] {subprocess.py:93} INFO - Requirement already satisfied: cffi<2.0.0,>=1.9 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (1.16.0)
+[2026-05-25T10:58:58.546+0000] {subprocess.py:93} INFO - Requirement already satisfied: idna<4,>=2.5 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (3.6)
+[2026-05-25T10:58:58.546+0000] {subprocess.py:93} INFO - Requirement already satisfied: requests<3.0.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (2.31.0)
+[2026-05-25T10:58:58.547+0000] {subprocess.py:93} INFO - Requirement already satisfied: urllib3~=1.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-core) (1.26.18)
+[2026-05-25T10:58:58.548+0000] {subprocess.py:93} INFO - Requirement already satisfied: psycopg2-binary~=2.8 in /home/***/.local/lib/python3.8/site-packages (from dbt-postgres) (2.9.9)
+[2026-05-25T10:58:58.554+0000] {subprocess.py:93} INFO - Requirement already satisfied: Babel>=2.0 in /home/***/.local/lib/python3.8/site-packages (from agate~=1.7.0->dbt-core) (2.14.0)
+[2026-05-25T10:58:58.555+0000] {subprocess.py:93} INFO - Requirement already satisfied: leather>=0.3.2 in /home/***/.local/lib/python3.8/site-packages (from agate~=1.7.0->dbt-core) (0.4.1)
+[2026-05-25T10:58:58.555+0000] {subprocess.py:93} INFO - Requirement already satisfied: parsedatetime!=2.5,>=2.1 in /home/***/.local/lib/python3.8/site-packages (from agate~=1.7.0->dbt-core) (2.6)
+[2026-05-25T10:58:58.555+0000] {subprocess.py:93} INFO - Requirement already satisfied: python-slugify>=1.2.1 in /home/***/.local/lib/python3.8/site-packages (from agate~=1.7.0->dbt-core) (8.0.1)
+[2026-05-25T10:58:58.556+0000] {subprocess.py:93} INFO - Requirement already satisfied: pytimeparse>=1.1.5 in /home/***/.local/lib/python3.8/site-packages (from agate~=1.7.0->dbt-core) (1.1.8)
+[2026-05-25T10:58:58.557+0000] {subprocess.py:93} INFO - Requirement already satisfied: pycparser in /home/***/.local/lib/python3.8/site-packages (from cffi<2.0.0,>=1.9->dbt-core) (2.21)
+[2026-05-25T10:58:58.563+0000] {subprocess.py:93} INFO - Requirement already satisfied: importlib-metadata~=6.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-semantic-interfaces~=0.4.2->dbt-core) (6.11.0)
+[2026-05-25T10:58:58.563+0000] {subprocess.py:93} INFO - Requirement already satisfied: more-itertools<11.0,>=8.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-semantic-interfaces~=0.4.2->dbt-core) (10.5.0)
+[2026-05-25T10:58:58.563+0000] {subprocess.py:93} INFO - Requirement already satisfied: pydantic<3,>=1.10 in /home/***/.local/lib/python3.8/site-packages (from dbt-semantic-interfaces~=0.4.2->dbt-core) (2.5.3)
+[2026-05-25T10:58:58.564+0000] {subprocess.py:93} INFO - Requirement already satisfied: python-dateutil~=2.0 in /home/***/.local/lib/python3.8/site-packages (from dbt-semantic-interfaces~=0.4.2->dbt-core) (2.8.2)
+[2026-05-25T10:58:58.566+0000] {subprocess.py:93} INFO - Requirement already satisfied: six in /home/***/.local/lib/python3.8/site-packages (from isodate<0.7,>=0.6->dbt-core) (1.16.0)
+[2026-05-25T10:58:58.568+0000] {subprocess.py:93} INFO - Requirement already satisfied: MarkupSafe>=2.0 in /home/***/.local/lib/python3.8/site-packages (from Jinja2<4,>=3.1.3->dbt-core) (2.1.3)
+[2026-05-25T10:58:58.577+0000] {subprocess.py:93} INFO - Requirement already satisfied: attrs>=22.2.0 in /home/***/.local/lib/python3.8/site-packages (from jsonschema>=3.0->dbt-core) (23.2.0)
+[2026-05-25T10:58:58.577+0000] {subprocess.py:93} INFO - Requirement already satisfied: importlib-resources>=1.4.0 in /home/***/.local/lib/python3.8/site-packages (from jsonschema>=3.0->dbt-core) (5.13.0)
+[2026-05-25T10:58:58.578+0000] {subprocess.py:93} INFO - Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/***/.local/lib/python3.8/site-packages (from jsonschema>=3.0->dbt-core) (2023.12.1)
+[2026-05-25T10:58:58.578+0000] {subprocess.py:93} INFO - Requirement already satisfied: pkgutil-resolve-name>=1.3.10 in /home/***/.local/lib/python3.8/site-packages (from jsonschema>=3.0->dbt-core) (1.3.10)
+[2026-05-25T10:58:58.579+0000] {subprocess.py:93} INFO - Requirement already satisfied: referencing>=0.28.4 in /home/***/.local/lib/python3.8/site-packages (from jsonschema>=3.0->dbt-core) (0.32.1)
+[2026-05-25T10:58:58.579+0000] {subprocess.py:93} INFO - Requirement already satisfied: rpds-py>=0.7.1 in /home/***/.local/lib/python3.8/site-packages (from jsonschema>=3.0->dbt-core) (0.17.1)
+[2026-05-25T10:58:58.594+0000] {subprocess.py:93} INFO - Requirement already satisfied: msgpack>=0.5.6 in /home/***/.local/lib/python3.8/site-packages (from mashumaro[msgpack]~=3.9->dbt-core) (1.1.1)
+[2026-05-25T10:58:58.617+0000] {subprocess.py:93} INFO - Requirement already satisfied: charset-normalizer<4,>=2 in /home/***/.local/lib/python3.8/site-packages (from requests<3.0.0->dbt-core) (3.3.2)
+[2026-05-25T10:58:58.617+0000] {subprocess.py:93} INFO - Requirement already satisfied: certifi>=2017.4.17 in /home/***/.local/lib/python3.8/site-packages (from requests<3.0.0->dbt-core) (2023.11.17)
+[2026-05-25T10:58:58.660+0000] {subprocess.py:93} INFO - Requirement already satisfied: zipp>=0.5 in /home/***/.local/lib/python3.8/site-packages (from importlib-metadata~=6.0->dbt-semantic-interfaces~=0.4.2->dbt-core) (3.17.0)
+[2026-05-25T10:58:58.688+0000] {subprocess.py:93} INFO - Requirement already satisfied: annotated-types>=0.4.0 in /home/***/.local/lib/python3.8/site-packages (from pydantic<3,>=1.10->dbt-semantic-interfaces~=0.4.2->dbt-core) (0.6.0)
+[2026-05-25T10:58:58.688+0000] {subprocess.py:93} INFO - Requirement already satisfied: pydantic-core==2.14.6 in /home/***/.local/lib/python3.8/site-packages (from pydantic<3,>=1.10->dbt-semantic-interfaces~=0.4.2->dbt-core) (2.14.6)
+[2026-05-25T10:58:58.697+0000] {subprocess.py:93} INFO - Requirement already satisfied: text-unidecode>=1.3 in /home/***/.local/lib/python3.8/site-packages (from python-slugify>=1.2.1->agate~=1.7.0->dbt-core) (1.3)
+[2026-05-25T10:58:59.878+0000] {subprocess.py:93} INFO - 
+[2026-05-25T10:58:59.878+0000] {subprocess.py:93} INFO - [notice] A new release of pip is available: 23.3.2 -> 25.0.1
+[2026-05-25T10:58:59.879+0000] {subprocess.py:93} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2026-05-25T10:59:01.130+0000] {subprocess.py:93} INFO - [0m10:59:01  Running with dbt=1.7.9
+[2026-05-25T10:59:01.294+0000] {subprocess.py:93} INFO - [0m10:59:01  Registered adapter: postgres=1.7.9
+[2026-05-25T10:59:01.323+0000] {subprocess.py:93} INFO - [0m10:59:01  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-05-25T10:59:01.323+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-05-25T10:59:01.323+0000] {subprocess.py:93} INFO - - models.ecommerce_warehouse.example
+[2026-05-25T10:59:01.336+0000] {subprocess.py:93} INFO - [0m10:59:01  Found 8 models, 6 tests, 0 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2026-05-25T10:59:01.338+0000] {subprocess.py:93} INFO - [0m10:59:01
+[2026-05-25T10:59:01.378+0000] {subprocess.py:93} INFO - [0m10:59:01  Concurrency: 1 threads (target='dev')
+[2026-05-25T10:59:01.378+0000] {subprocess.py:93} INFO - [0m10:59:01
+[2026-05-25T10:59:01.384+0000] {subprocess.py:93} INFO - [0m10:59:01  1 of 6 START test not_null_dim_customers_customer_id ........................... [RUN]
+[2026-05-25T10:59:01.418+0000] {subprocess.py:93} INFO - [0m10:59:01  1 of 6 PASS not_null_dim_customers_customer_id ................................. [[32mPASS[0m in 0.03s]
+[2026-05-25T10:59:01.420+0000] {subprocess.py:93} INFO - [0m10:59:01  2 of 6 START test not_null_dim_products_product_id ............................. [RUN]
+[2026-05-25T10:59:01.436+0000] {subprocess.py:93} INFO - [0m10:59:01  2 of 6 PASS not_null_dim_products_product_id ................................... [[32mPASS[0m in 0.02s]
+[2026-05-25T10:59:01.438+0000] {subprocess.py:93} INFO - [0m10:59:01  3 of 6 START test not_null_fct_orders_order_item_id ............................ [RUN]
+[2026-05-25T10:59:01.455+0000] {subprocess.py:93} INFO - [0m10:59:01  3 of 6 PASS not_null_fct_orders_order_item_id .................................. [[32mPASS[0m in 0.02s]
+[2026-05-25T10:59:01.456+0000] {subprocess.py:93} INFO - [0m10:59:01  4 of 6 START test unique_dim_customers_customer_id ............................. [RUN]
+[2026-05-25T10:59:01.474+0000] {subprocess.py:93} INFO - [0m10:59:01  4 of 6 PASS unique_dim_customers_customer_id ................................... [[32mPASS[0m in 0.02s]
+[2026-05-25T10:59:01.476+0000] {subprocess.py:93} INFO - [0m10:59:01  5 of 6 START test unique_dim_products_product_id ............................... [RUN]
+[2026-05-25T10:59:01.492+0000] {subprocess.py:93} INFO - [0m10:59:01  5 of 6 PASS unique_dim_products_product_id ..................................... [[32mPASS[0m in 0.02s]
+[2026-05-25T10:59:01.494+0000] {subprocess.py:93} INFO - [0m10:59:01  6 of 6 START test unique_fct_orders_order_item_id .............................. [RUN]
+[2026-05-25T10:59:01.518+0000] {subprocess.py:93} INFO - [0m10:59:01  6 of 6 PASS unique_fct_orders_order_item_id .................................... [[32mPASS[0m in 0.02s]
+[2026-05-25T10:59:01.527+0000] {subprocess.py:93} INFO - [0m10:59:01
+[2026-05-25T10:59:01.528+0000] {subprocess.py:93} INFO - [0m10:59:01  Finished running 6 tests in 0 hours 0 minutes and 0.19 seconds (0.19s).
+[2026-05-25T10:59:01.535+0000] {subprocess.py:93} INFO - [0m10:59:01
+[2026-05-25T10:59:01.536+0000] {subprocess.py:93} INFO - [0m10:59:01  [32mCompleted successfully[0m
+[2026-05-25T10:59:01.536+0000] {subprocess.py:93} INFO - [0m10:59:01
+[2026-05-25T10:59:01.536+0000] {subprocess.py:93} INFO - [0m10:59:01  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[2026-05-25T10:59:02.661+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-25T10:59:02.677+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=warehouse_pipeline, task_id=run_dbt_tests, execution_date=20260525T105850, start_date=20260525T105858, end_date=20260525T105902
+[2026-05-25T10:59:02.713+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-25T10:59:02.725+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

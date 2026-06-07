@@ -1,0 +1,62 @@
+version: '3' 
+
+services:
+
+  postgres:
+    image: postgres:13 
+    container_name: postgres_p6 
+    environment:
+      POSTGRES_USER: airflow 
+      POSTGRES_PASSWORD: airflow 
+      POSTGRES_DB: airflow_db
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres_db_volume_p6:/var/lib/postgresql/data
+
+  airflow-webserver:
+    build: . 
+    container_name: airflow_webserver_p6
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor 
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://airflow:airflow@postgres/airflow_db"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__WEBSERVER__SECRET_KEY: "project6secretkey"
+    ports:
+      - "8086:8080"
+      - "8087:8087"
+    volumes:
+       - ./dags:/opt/airflow/dags
+       - ./logs:/opt/airflow/logs
+       - ./plugins:/opt/airflow/plugins
+       - ./dbt:/opt/airflow/dbt
+       - ./dbt_profiles:/opt/airflow/dbt_profiles
+       - ./scripts:/opt/airflow/scripts
+       - ./data:/opt/airflow/data
+     
+    command: airflow webserver
+
+  airflow-scheduler:
+    build: .
+    container_name: airflow_scheduler_p6
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://airflow:airflow@postgres/airflow_db"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__WEBSERVER__SECRET_KEY: "project6secretkey"
+    volumes:
+       - ./dags:/opt/airflow/dags
+       - ./logs:/opt/airflow/logs
+       - ./plugins:/opt/airflow/plugins
+       - ./dbt:/opt/airflow/dbt
+       - ./dbt_profiles:/opt/airflow/dbt_profiles
+       - ./scripts:/opt/airflow/scripts
+       - ./data:/opt/airflow/data      
+    command: airflow scheduler
+
+volumes:
+  postgres_db_volume_p6:

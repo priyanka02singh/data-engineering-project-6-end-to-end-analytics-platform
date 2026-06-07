@@ -1,0 +1,6 @@
+customer_id,first_name,last_name,email,city,country 
+1,Priyanka,Rao,priyanka@example.com,Hyderabad,India 
+2,Rahul,Sharma,rahul@example.com,Bangalore,India 
+3,Aisha,Khan,aisha@example.com,Mumbai,India 
+4,Arjun,Patel,arjun@example.com,Delhi,India
+5,Sneha,Reddy,sneha@example.com,Chennai,India

@@ -1,0 +1,66 @@
+[2026-05-22T14:27:20.398+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_tests manual__2026-05-22T14:27:15.351315+00:00 [queued]>
+[2026-05-22T14:27:20.402+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: warehouse_pipeline.run_dbt_tests manual__2026-05-22T14:27:15.351315+00:00 [queued]>
+[2026-05-22T14:27:20.402+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-05-22T14:27:20.408+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): run_dbt_tests> on 2026-05-22 14:27:15.351315+00:00
+[2026-05-22T14:27:20.410+0000] {standard_task_runner.py:60} INFO - Started process 317 to run task
+[2026-05-22T14:27:20.411+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'warehouse_pipeline', 'run_dbt_tests', 'manual__2026-05-22T14:27:15.351315+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/warehouse_pipeline.py', '--cfg-path', '/tmp/tmps1_qhg22']
+[2026-05-22T14:27:20.412+0000] {standard_task_runner.py:88} INFO - Job 44: Subtask run_dbt_tests
+[2026-05-22T14:27:20.433+0000] {task_command.py:423} INFO - Running <TaskInstance: warehouse_pipeline.run_dbt_tests manual__2026-05-22T14:27:15.351315+00:00 [running]> on host 9e7ef4c7a3a6
+[2026-05-22T14:27:20.463+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Priyanka' AIRFLOW_CTX_DAG_ID='warehouse_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_tests' AIRFLOW_CTX_EXECUTION_DATE='2026-05-22T14:27:15.351315+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-22T14:27:15.351315+00:00'
+[2026-05-22T14:27:20.464+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-22T14:27:20.464+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', ' \n        cd /opt/***/dbt/ecommerce_warehouse &&         /home/***/.local/bin/dbt test --profiles-dir /opt/***/dbt_profiles\n        ']
+[2026-05-22T14:27:20.468+0000] {subprocess.py:86} INFO - Output:
+[2026-05-22T14:27:21.153+0000] {subprocess.py:93} INFO - [0m14:27:21  Running with dbt=1.8.7
+[2026-05-22T14:27:21.264+0000] {subprocess.py:93} INFO - [0m14:27:21  Registered adapter: postgres=1.8.2
+[2026-05-22T14:27:21.353+0000] {subprocess.py:93} INFO - [0m14:27:21  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-05-22T14:27:21.355+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-05-22T14:27:21.356+0000] {subprocess.py:93} INFO - - models.ecommerce_warehouse.example
+[2026-05-22T14:27:21.445+0000] {subprocess.py:93} INFO - [0m14:27:21  Found 8 models, 6 data tests, 423 macros
+[2026-05-22T14:27:21.447+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.502+0000] {subprocess.py:93} INFO - [0m14:27:21  Concurrency: 1 threads (target='dev')
+[2026-05-22T14:27:21.503+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.508+0000] {subprocess.py:93} INFO - [0m14:27:21  1 of 6 START test not_null_dim_customers_customer_id ........................... [RUN]
+[2026-05-22T14:27:21.555+0000] {subprocess.py:93} INFO - [0m14:27:21  1 of 6 PASS not_null_dim_customers_customer_id ................................. [[32mPASS[0m in 0.05s]
+[2026-05-22T14:27:21.557+0000] {subprocess.py:93} INFO - [0m14:27:21  2 of 6 START test not_null_dim_products_product_id ............................. [RUN]
+[2026-05-22T14:27:21.569+0000] {subprocess.py:93} INFO - [0m14:27:21  2 of 6 PASS not_null_dim_products_product_id ................................... [[32mPASS[0m in 0.01s]
+[2026-05-22T14:27:21.571+0000] {subprocess.py:93} INFO - [0m14:27:21  3 of 6 START test not_null_fct_orders_order_id ................................. [RUN]
+[2026-05-22T14:27:21.585+0000] {subprocess.py:93} INFO - [0m14:27:21  3 of 6 PASS not_null_fct_orders_order_id ....................................... [[32mPASS[0m in 0.01s]
+[2026-05-22T14:27:21.586+0000] {subprocess.py:93} INFO - [0m14:27:21  4 of 6 START test unique_dim_customers_customer_id ............................. [RUN]
+[2026-05-22T14:27:21.601+0000] {subprocess.py:93} INFO - [0m14:27:21  4 of 6 FAIL 5 unique_dim_customers_customer_id ................................. [[31mFAIL 5[0m in 0.01s]
+[2026-05-22T14:27:21.603+0000] {subprocess.py:93} INFO - [0m14:27:21  5 of 6 START test unique_dim_products_product_id ............................... [RUN]
+[2026-05-22T14:27:21.614+0000] {subprocess.py:93} INFO - [0m14:27:21  5 of 6 FAIL 5 unique_dim_products_product_id ................................... [[31mFAIL 5[0m in 0.01s]
+[2026-05-22T14:27:21.615+0000] {subprocess.py:93} INFO - [0m14:27:21  6 of 6 START test unique_fct_orders_order_id ................................... [RUN]
+[2026-05-22T14:27:21.628+0000] {subprocess.py:93} INFO - [0m14:27:21  6 of 6 FAIL 7 unique_fct_orders_order_id ....................................... [[31mFAIL 7[0m in 0.01s]
+[2026-05-22T14:27:21.633+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.634+0000] {subprocess.py:93} INFO - [0m14:27:21  Finished running 6 data tests in 0 hours 0 minutes and 0.19 seconds (0.19s).
+[2026-05-22T14:27:21.688+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.688+0000] {subprocess.py:93} INFO - [0m14:27:21  [31mCompleted with 3 errors and 0 warnings:[0m
+[2026-05-22T14:27:21.688+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.689+0000] {subprocess.py:93} INFO - [0m14:27:21  [31mFailure in test unique_dim_customers_customer_id (models/marts/schema.yml)[0m
+[2026-05-22T14:27:21.689+0000] {subprocess.py:93} INFO - [0m14:27:21    Got 5 results, configured to fail if != 0
+[2026-05-22T14:27:21.689+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.690+0000] {subprocess.py:93} INFO - [0m14:27:21    compiled code at target/compiled/ecommerce_warehouse/models/marts/schema.yml/unique_dim_customers_customer_id.sql
+[2026-05-22T14:27:21.690+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.691+0000] {subprocess.py:93} INFO - [0m14:27:21  [31mFailure in test unique_dim_products_product_id (models/marts/schema.yml)[0m
+[2026-05-22T14:27:21.691+0000] {subprocess.py:93} INFO - [0m14:27:21    Got 5 results, configured to fail if != 0
+[2026-05-22T14:27:21.691+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.692+0000] {subprocess.py:93} INFO - [0m14:27:21    compiled code at target/compiled/ecommerce_warehouse/models/marts/schema.yml/unique_dim_products_product_id.sql
+[2026-05-22T14:27:21.692+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.693+0000] {subprocess.py:93} INFO - [0m14:27:21  [31mFailure in test unique_fct_orders_order_id (models/marts/schema.yml)[0m
+[2026-05-22T14:27:21.693+0000] {subprocess.py:93} INFO - [0m14:27:21    Got 7 results, configured to fail if != 0
+[2026-05-22T14:27:21.693+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.693+0000] {subprocess.py:93} INFO - [0m14:27:21    compiled code at target/compiled/ecommerce_warehouse/models/marts/schema.yml/unique_fct_orders_order_id.sql
+[2026-05-22T14:27:21.694+0000] {subprocess.py:93} INFO - [0m14:27:21
+[2026-05-22T14:27:21.695+0000] {subprocess.py:93} INFO - [0m14:27:21  Done. PASS=3 WARN=0 ERROR=3 SKIP=0 TOTAL=6
+[2026-05-22T14:27:22.774+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-05-22T14:27:22.780+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-05-22T14:27:22.781+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=warehouse_pipeline, task_id=run_dbt_tests, execution_date=20260522T142715, start_date=20260522T142720, end_date=20260522T142722
+[2026-05-22T14:27:22.787+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 44 for task run_dbt_tests (Bash command failed. The command returned a non-zero exit code 1.; 317)
+[2026-05-22T14:27:22.804+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-05-22T14:27:22.813+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
