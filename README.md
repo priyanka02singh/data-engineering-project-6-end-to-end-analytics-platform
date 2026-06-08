@@ -1,136 +1,168 @@
-# 📊 Project 6: End-to-End Analytics Platform (Batch + Streaming + ML + Warehouse)
-
+# 🚀 Project 6: End-to-End Retail Analytics Platform
 ## 📌 Overview
 
-This project implements a production-style end-to-end data platform that integrates modern data engineering components into a unified system.
+This project simulates a modern retail analytics platform that processes customer orders, product, and transaction data through both batch and analytical layers to generate actionable business insights such as revenue trends, customer behavior, and product performance.
 
-It combines:
-- Batch ETL pipelines
-- Data warehouse modeling (dbt)
-- Workflow orchestration (Apache Airflow)
-- Machine learning pipeline integration
-
-The system simulates a real-world analytics platform used for business intelligence and predictive analytics.
+The system is designed to mimic a real-world data platform used in e-commerce companies for reporting, analytics, and predictive insights.
 
 ---
 
-## 🏗️ System Architecture
+## 🎯 Business Problem
+
+Modern e-commerce platforms generate large volumes of structured and semi-structured data from:
+
+- customer orders
+- product catalog updates
+- payment transactions
+- user activity logs
+
+This data is often fragmented and cannot be directly used for decision-making.
+
+### This project solves:
+How to unify raw data into a central analytics warehouse
+How to transform raw events into business-ready metrics
+How to enable batch analytics + predictive insights
+
+---
+
+🏗️ System Architecture
+
+The system follows a layered data architecture:
 
 ```text
-Raw Data (CSV Sources)
+Raw Data Sources (CSV / Events)
         ↓
-Python ETL Layer (Extraction + Cleaning)
+Data Ingestion Layer
         ↓
-Staging Tables (PostgreSQL)
+Processing Layer (ETL Pipelines)
         ↓
-Apache Airflow (Orchestration Layer)
+Orchestration Layer (Airflow)
         ↓
-dbt Transformation Layer
+Data Warehouse (PostgreSQL)
         ↓
-Data Warehouse (Star Schema)
+Transformations (dbt models)
         ↓
-Feature Engineering Layer
-        ↓
-Machine Learning Model Training
-        ↓
-Prediction / Analytics Output
+Analytics Layer (BI-ready tables + ML features)
 ```
 
----
+### 🔵 Batch Processing Layer
+- Handles structured data ingestion
+- Performs cleaning, validation, and transformation
+- Loads processed data into warehouse tables
 
-## ⚙️ Key Components
-
-### 📥 1. Data Ingestion Layer
-
-- Loads raw datasets from data/raw/
-- Prepares structured inputs for processing
-
-### 🔄 2. ETL Processing Layer
-
-- Python-based transformation logic
-- Handles missing values and schema normalization
-- Prepares data for warehouse ingestion
-
-### 🏛️ 3. Data Warehouse Layer (dbt)
-
-- Implements star schema architecture
-- Fact tables: orders
-- Dimension tables: customers, products, payments
-- Ensures analytics-ready structure
-
-###🤖 4. Machine Learning Layer
-
-- Feature engineering from warehouse tables
-- Model training using structured datasets
-- Saves trained model (model.pkl)
-- Enables prediction pipeline
-  
-### 🧠 5. Orchestration Layer (Airflow)
-- Automates full pipeline execution
-- Manages task dependencies
-- Ensures reproducible workflows
+### 🟣 Analytics Layer
+Builds aggregated business metrics
+Generates feature tables for predictive modeling
+Supports revenue, customer, and product analytics
 
 ---
 
 ## 🧰 Tech Stack
-
-- Python (ETL + ML)
-- SQL (Data modeling)
-- Apache Airflow (Orchestration)
-- dbt (Data transformations)
-- PostgreSQL (Warehouse)
-- Docker (Containerization)
-- Pandas / Scikit-learn (ML)
+- Python → ETL pipelines & data processing
+- PostgreSQL → Data warehouse
+- Airflow → Workflow orchestration
+- dbt → Data modeling & transformations
+- Pandas → Data preprocessing
+- SQL → Analytical queries & modeling
 
 ---
-
-## 🔄 Pipeline Flow
-
-Extract → Transform → Load → Staging → dbt Models → Warehouse → Features → ML Model → Output
-
----
-
-## 📁 Project Structure
-
-dags/              → Airflow DAGs
-scripts/           → ETL + ML pipelines
-data/raw/          → Raw datasets
-dbt/               → Data warehouse models
-models/            → ML models
-docker-compose.yml → Infrastructure setup
-requirements.txt   → Dependencies
-
-## 🚀 Execution Modes
-
-### ▶ Manual Execution
-```bash
-python scripts/load_raw_data.py
-```
-### ▶ Airflow Execution
-
-Triggered via:
-```bash
-dags/warehouse_pipeline.py
-```
----
-
-## 🧠 Key Engineering Highlights
-
-- Production-style data platform design
-- Batch + warehouse + ML integration
-- dbt-based analytics engineering
-- Airflow orchestration
-- Modular and scalable architecture
-
----
-
-## 🚀 Outcome
-
-This project demonstrates a complete modern data platform that integrates:
-
-- Data engineering pipelines
-- Data warehouse modeling
-- Workflow orchestration
-- Machine learning workflows
   
-It reflects how real-world analytics platforms are built in production systems.
+## 🔄 Data Flow
+1. Raw data is ingested from source files/events
+2. Data is cleaned and standardized using ETL scripts
+3. Airflow schedules and orchestrates pipeline execution
+4. Clean data is loaded into PostgreSQL warehouse
+5. dbt transforms raw tables into:
+        - Fact tables (orders, transactions)
+        - Dimension tables (customers, products)
+6. Aggregated tables are generated for analytics use cases
+7. Feature datasets are created for predictive modeling
+
+---
+    
+## 🧱 Data Warehouse Design
+### Fact Tables:
+- fact_orders
+- fact_payments
+### Dimension Tables:
+- dim_customers
+- dim_products
+- dim_date
+
+This follows a star schema design for efficient analytics querying.
+
+## ⚙️ Key Engineering Decisions
+
+### 1. Why PostgreSQL?
+
+Chosen as a lightweight warehouse to simulate real-world OLAP systems while keeping the system easy to run locally.
+
+### 2. Why dbt?
+
+dbt enables modular, version-controlled SQL transformations and enforces analytics engineering best practices.
+
+### 3. Why Airflow?
+
+Airflow provides orchestration, scheduling, and dependency management for ETL pipelines.
+
+### 4. Batch-first design
+
+Batch processing ensures:
+
+- data consistency
+- reproducibility
+- easier debugging
+
+---
+  
+## 🧠 Analytics & Insights
+
+The platform enables:
+
+- 📊 Revenue tracking over time
+- 👤 Customer segmentation analysis
+- 🛒 Product performance analysis
+- 📈 Order trend monitoring
+- 🧾 Data readiness for predictive modeling
+
+---
+
+## 🧪 Reliability & Engineering Considerations
+
+This system is designed with production-like thinking:
+
+- Idempotent ETL pipelines (safe re-runs)
+- Structured data validation before warehouse load
+- Modular dbt models for maintainability
+- Separation of ingestion, transformation, and analytics layers
+- Airflow DAG-based dependency management
+
+---
+
+## ▶️ How to Run
+```bash
+# Step 1: Start infrastructure
+docker-compose up
+
+# Step 2: Run Airflow DAGs
+airflow dags trigger etl_pipeline
+
+# Step 3: Run dbt transformations
+dbt run
+```
+---
+
+## 📊 Output Examples
+- Cleaned and structured warehouse tables
+- Aggregated revenue dashboards
+- Customer and product analytics datasets
+- Feature tables for ML pipelines
+
+---
+  
+## 💡 Key Learnings
+- End-to-end data pipeline design
+- Data warehouse modeling (star schema)
+- Workflow orchestration using Airflow
+- dbt-based transformation workflows
+- Batch analytics system design
